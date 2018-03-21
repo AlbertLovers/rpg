@@ -10,6 +10,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -52,14 +53,22 @@ public class TalentView implements View {
 
 	private void populateGridPane() {
 		addHeaders();
+		addOtherNodes();
+	}
+
+	private void addOtherNodes() {
+		Button hoofdMenuButton = new Button("Hoofdmenu");
+		hoofdMenuButton.setOnAction(e -> Start.mainMenuController.setScene());
+		
 		gridPane.add(naamField, 0, 1);	
 		gridPane.add(omschrijvingArea, 1, 1);
 		addCharacteristicFields();
 		gridPane.add(tierField, 4, 1);
 
+		gridPane.add(hoofdMenuButton, 4, 2);
+		
 		GridPane.setValignment(naamField, VPos.TOP);
 		GridPane.setValignment(tierField, VPos.TOP);
-
 	}
 
 	private void addCharacteristicFields() {
