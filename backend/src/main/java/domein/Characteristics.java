@@ -20,7 +20,7 @@ public class Characteristics {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public int getWeaponSkill() {
 		return weaponSkill;
 	}
