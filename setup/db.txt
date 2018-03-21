@@ -1,0 +1,82 @@
+DROP DATABASE OnlyWar;
+
+CREATE DATABASE OnlyWar;
+
+USE OnlyWar;
+
+CREATE TABLE Characteristics (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  weaponSkill INT(2),
+  ballisticSkill INT(2),
+  strength INT(2),
+  toughnes INT(2),
+  agility INT(2),
+  intelligence INT(2),
+  perception INT(2),
+  willpower INT(2),
+  fellowship INT(2),
+  UNIQUE(id)
+);
+
+CREATE TABLE Karakter (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  naam VARCHAR(255) NOT NULL,
+  omschrijving VARCHAR(255),
+  persoonlijkheid VARCHAR(255),
+  characteristics_id INT,
+  UNIQUE (id),
+  FOREIGN KEY(characteristics_id) REFERENCES Characteristics (id)
+);
+
+CREATE TABLE Skill (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  naam VARCHAR(255),
+  aptitude1 INT,
+  aptitude2 INT,
+  omschrijving TEXT,
+  UNIQUE (id),
+  UNIQUE (naam),
+  FOREIGN KEY(aptitude1) REFERENCES Aptitudes(id),
+  FOREIGN KEY(aptitude2) REFERENCES Aptitudes(id)
+);
+
+CREATE TABLE GekochteSkills (
+  karakter_id INT,
+  skill_id INT,
+  level INT(1),
+  FOREIGN KEY (karakter_id) REFERENCES Karakter (id),
+  FOREIGN KEY (skill_id) REFERENCES Skill (id),
+  UNIQUE(karakter_id, skill_id)
+);
+
+CREATE TABLE Talent (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  naam VARCHAR(255),
+  omschrijving TEXT,
+  characteristics_id INT,
+  aptitude1 INT,
+  aptitude2 INT,
+  level INT(1),
+  UNIQUE (id),
+  FOREIGN KEY (characteristics_id) REFERENCES Characteristics (id)
+);
+
+CREATE TABLE RequiredTalent (
+  talent_id BIGINT,
+  requiredTalent_id BIGINT,
+  FOREIGN KEY (talent_id) REFERENCES Talent (id),
+  FOREIGN KEY (requiredTalent_id) REFERENCES Talent (id)
+);
+
+CREATE TABLE RequiredSkill (
+  talent_id BIGINT,
+  requiredSkill_id BIGINT,
+  FOREIGN KEY (talent_id) REFERENCES Skill (id),
+  FOREIGN KEY (requiredSkill_id) REFERENCES Skill (id)
+);
+
+CREATE TABLE Aptitudes (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  naam VARCHAR(255),
+  UNIQUE(id)
+);
