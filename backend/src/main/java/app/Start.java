@@ -2,6 +2,7 @@ package app;
 
 import controller.Controller;
 import controller.MainMenuController;
+import controller.SkillController;
 import controller.TalentController;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -13,8 +14,9 @@ public class Start extends Application{
 
 	public static final Controller mainMenuController = new MainMenuController();
 	public static final Controller talentController = new TalentController();
+	public static final Controller skillController = new SkillController();
 
-	public static void main(String[] args) {
+	public static void main(java.lang.String[] args) {
 		Application.launch(args);
 	}
 

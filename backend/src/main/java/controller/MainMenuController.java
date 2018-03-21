@@ -9,9 +9,8 @@ public class MainMenuController implements Controller {
 
 	public MainMenuController() {
 		mainView = new MainView();
-		mainView.setTalentButtonListener(e -> {
-			Start.talentController.setScene();
-		});
+		mainView.setTalentButtonListener(e -> Start.talentController.setScene());
+		mainView.setSkillButtonListener(e -> Start.skillController.setScene());
 	}
 	
 	@Override

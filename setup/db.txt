@@ -40,7 +40,7 @@ CREATE TABLE Skill (
   FOREIGN KEY(aptitude2) REFERENCES Aptitudes(id)
 );
 
-CREATE TABLE GekochteSkills (
+CREATE TABLE Karakter_Skill (
   karakter_id INT,
   skill_id INT,
   level INT(1),
@@ -61,14 +61,14 @@ CREATE TABLE Talent (
   FOREIGN KEY (characteristics_id) REFERENCES Characteristics (id)
 );
 
-CREATE TABLE RequiredTalent (
+CREATE TABLE Talent_Talent (
   talent_id BIGINT,
   requiredTalent_id BIGINT,
   FOREIGN KEY (talent_id) REFERENCES Talent (id),
   FOREIGN KEY (requiredTalent_id) REFERENCES Talent (id)
 );
 
-CREATE TABLE RequiredSkill (
+CREATE TABLE Talent_Skill (
   talent_id BIGINT,
   requiredSkill_id BIGINT,
   FOREIGN KEY (talent_id) REFERENCES Skill (id),
