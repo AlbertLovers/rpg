@@ -1,4 +1,4 @@
-package dao.impl;
+package domein.mapper;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.ResultSet;
@@ -7,37 +7,12 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-import domein.Aptitude;
 import domein.Characteristics;
-import domein.Karakter;
 
-public interface Mapper<T> {
-	T map(ResultSet rs) throws SQLException;
-}
-
-class KarakterMapper implements Mapper<Karakter> {
-	public Karakter map(ResultSet resultSet) throws SQLException {
-		return new Karakter();
-	}
-}
-
-class AptitudeMapper implements Mapper<Aptitude> {
-
-	@Override
-	public Aptitude map(ResultSet rs) throws SQLException {
-		Aptitude aptitude = new Aptitude();
-
-		aptitude.setId(rs.getInt(1));
-		aptitude.setNaam(rs.getString(2));
-
-		return aptitude;
-	}
-}
-
-// Voor de sier, want nu hoef ik nooit meer een Characteristicsmapper te schrijven
-// hoewel dit natuurlijk wel een stuk langzamer is, maar geen high throughput applicatie
-// dus who cares
-class CharacteristicsMapper implements Mapper<Characteristics> {
+//Voor de sier, want nu hoef ik nooit meer een Characteristicsmapper te schrijven
+//hoewel dit natuurlijk wel een stuk langzamer is, maar geen high throughput applicatie
+//dus who cares
+public class CharacteristicsMapper implements Mapper<Characteristics> {
 	private static Map<String, String> setters = new HashMap<>();
 
 	@Override

@@ -3,7 +3,7 @@ package controller;
 import java.sql.SQLException;
 import java.util.List;
 
-import dao.impl.AptitudeDao;
+import dao.AptitudeDao;
 import domein.Aptitude;
 import view.TalentView;
 
