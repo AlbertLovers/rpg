@@ -1,5 +1,8 @@
 package domein;
 
+import annotation.Transient;
+import dao.Cache;
+
 public class Skill {
 
 	private int id;
@@ -8,10 +11,16 @@ public class Skill {
 
 	private String omschrijving;
 	
-	private int aptitude1;
+	private int aptitude1Id;
 	
-	private int aptitude2;
+	private int aptitude2Id;
 
+	@Transient
+	private Aptitude aptitude1;
+	
+	@Transient
+	private Aptitude aptitude2;
+	
 	public int getId() {
 		return id;
 	}
@@ -36,22 +45,29 @@ public class Skill {
 		this.omschrijving = omschrijving;
 	}
 
-	public int getAptitude1() {
+	public int getAptitude1Id() {
+		return aptitude1Id;
+	}
+
+	public void setAptitude1Id(int aptitude1Id) {
+		this.aptitude1 = Cache.getAptitude(aptitude1Id);
+		this.aptitude1Id = aptitude1Id;
+	}
+
+	public int getAptitude2Id() {
+		return aptitude2Id;
+	}
+
+	public void setAptitude2Id(int aptitude2Id) {
+		this.aptitude2 = Cache.getAptitude(aptitude2Id);
+		this.aptitude2Id = aptitude2Id;
+	}
+
+	public Aptitude getAptitude1() {
 		return aptitude1;
 	}
 
-	public void setAptitude1(int aptitude1) {
-		this.aptitude1 = aptitude1;
-	}
-
-	public int getAptitude2() {
+	public Aptitude getAptitude2() {
 		return aptitude2;
 	}
-
-	public void setAptitude2(int aptitude2) {
-		this.aptitude2 = aptitude2;
-	}
-	
-
-	
 }

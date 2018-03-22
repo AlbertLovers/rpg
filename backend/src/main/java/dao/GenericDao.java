@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import annotation.Transient;
 import domein.mapper.Mapper;
 import utility.ConnectionManager;
 
@@ -54,10 +55,12 @@ public class GenericDao<T> {
 		try (PreparedStatement statement = manager.getConnection().prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
 			populateStatement(statement, item, fields);
 			statement.executeUpdate();
+
 			try(ResultSet rs = statement.getGeneratedKeys()) {
 				rs.next();
 				return rs.getInt(1);
 			}
+
 		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -65,11 +68,14 @@ public class GenericDao<T> {
 		return -1;
 	}
 
-	private void populateStatement(PreparedStatement statement, T item, Field[] fields) throws SQLException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	private void populateStatement(PreparedStatement statement, T item, Field[] fields) throws SQLException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 		int length = fields.length;
 
 		for(int i = 0; i < length; i++) {
 			Field field = fields[i];
+			
+			if(field.getAnnotationsByType(Transient.class) != null) continue;
+			
 			String naam = field.getName();
 			Method getter = item.getClass().getDeclaredMethod("get" + Character.toUpperCase(naam.charAt(0)) + naam.substring(1));
 

@@ -31,13 +31,13 @@ CREATE TABLE Karakter (
 CREATE TABLE Skill (
   id INT PRIMARY KEY AUTO_INCREMENT,
   naam VARCHAR(255),
-  aptitude1 INT,
-  aptitude2 INT,
+  aptitude1_id INT,
+  aptitude2_id INT,
   omschrijving TEXT,
   UNIQUE (id),
   UNIQUE (naam),
-  FOREIGN KEY(aptitude1) REFERENCES Aptitudes(id),
-  FOREIGN KEY(aptitude2) REFERENCES Aptitudes(id)
+  FOREIGN KEY(aptitude1_id) REFERENCES Aptitudes(id),
+  FOREIGN KEY(aptitude2_id) REFERENCES Aptitudes(id)
 );
 
 CREATE TABLE Karakter_Skill (
