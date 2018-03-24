@@ -1,10 +1,12 @@
 package domein;
 
+import annotation.Id;
 import annotation.Transient;
 import dao.Cache;
 
 public class Skill {
 
+	@Id
 	private int id;
 	
 	private String naam;

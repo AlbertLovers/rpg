@@ -19,6 +19,7 @@ public class Cache {
 
 	static {
 		try {
+			// Aptitudes altijd als eerste, want later belangrijk!
 			refreshAptitudes();
 			refreshSkills();
 		} catch(SQLException e) {
@@ -41,6 +42,13 @@ public class Cache {
 		return null;
 	}
 
+	public static Aptitude getAptitude(String naam) {
+		for(Aptitude aptitude : aptitudes) {
+			if(aptitude.getNaam().equals(naam)) return aptitude;
+		}
+		return null;
+	}
+	
 	public static List<Aptitude> getAptitudes() {
 		return aptitudes;
 	}
