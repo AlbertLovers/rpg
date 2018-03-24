@@ -12,12 +12,12 @@ public class SkillMapper implements Mapper<Skill> {
 		Skill skill = new Skill();
 		
 		skill.setId(rs.getInt("id"));
-		skill.setAptitude1Id(rs.getInt("aptitude1_id"));
-		skill.setAptitude2Id(rs.getInt("aptitude2_id"));
+		skill.setAptitude1Id(rs.getInt("aptitude1"));
+		skill.setAptitude2Id(rs.getInt("aptitude2"));
 		skill.setNaam(rs.getString("naam"));
 		skill.setOmschrijving(rs.getString("omschrijving"));
 		
-		return null;
+		return skill;
 	}
 
 }

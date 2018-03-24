@@ -77,7 +77,7 @@ public class SkillView implements View {
 	}
 
 	private void addHeaders() {
-		gridPane.add(new Label("Skills"), 1, 0);
+		gridPane.add(new Label("Skills"), 0, 0);
 		gridPane.add(new Label("Naam"), 1, 0);
 		gridPane.add(new Label("Omschrijving"), 2, 0);
 		gridPane.add(new Label("Aptitudes"), 3, 0);
@@ -102,7 +102,7 @@ public class SkillView implements View {
 			children.add(c);
 		});
 
-		gridPane.add(vBox, 2, 1);
+		gridPane.add(vBox, 3, 1);
 	}
 
 	public void setSkillsInListView(List<Skill> newSkillList) {

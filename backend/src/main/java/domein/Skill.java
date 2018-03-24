@@ -70,4 +70,9 @@ public class Skill {
 	public Aptitude getAptitude2() {
 		return aptitude2;
 	}
+	
+	@Override
+	public String toString() {
+		return naam;
+	}
 }
