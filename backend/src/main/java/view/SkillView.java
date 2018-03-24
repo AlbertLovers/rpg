@@ -67,7 +67,7 @@ public class SkillView implements View {
 		Button hoofdMenuButton = new Button("Hoofdmenu");
 		hoofdMenuButton.setOnAction(e -> Start.mainMenuController.setScene());
 		
-		gridPane.add(naamField, 1, 1);
+		gridPane.add(skillListView, 0, 1);
 		gridPane.add(naamField, 1, 1);
 		gridPane.add(omschrijvingArea, 2, 1);
 		
