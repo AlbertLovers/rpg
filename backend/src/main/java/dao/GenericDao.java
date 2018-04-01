@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import annotation.Id;
 import annotation.Transient;
 import domein.mapper.Mapper;
 import utility.ConnectionManager;
@@ -62,9 +61,9 @@ public class GenericDao<T> {
 	 * @return Gezochte object of null
 	 * @throws SQLException
 	 */
-	public T querySingleObject(String query, int id, Mapper<T> mapper) throws SQLException {
+	public T querySingleObject(String query, Long id, Mapper<T> mapper) throws SQLException {
 		try(Connection connection = manager.getConnection(); PreparedStatement statement = connection.prepareStatement(query)){
-			statement.setInt(1, id);
+			statement.setLong(1, id);
 			try(ResultSet rs = statement.executeQuery()) {
 				if(rs.next()) return (T) mapper.map(rs);
 			}
@@ -106,7 +105,7 @@ public class GenericDao<T> {
 		int index = 0;
 
 		for(Field field : fields) {
-			if(field.getAnnotationsByType(Transient.class).length != 0 || field.getAnnotationsByType(Id.class).length != 0) continue;
+			if(field.getAnnotationsByType(Transient.class).length != 0) continue;
 			index++;
 
 			String naam = field.getName();
@@ -122,7 +121,7 @@ public class GenericDao<T> {
 
 		for(int i = 0; i < fields.length; i++ ) {
 			Field field = fields[i];
-			if(field.getAnnotation(Transient.class) == null && field.getAnnotation(Id.class) == null) {
+			if(field.getAnnotation(Transient.class) == null) {
 				query.append(field.getName()).append(",");
 				vraagtekens.append("?,");
 			}

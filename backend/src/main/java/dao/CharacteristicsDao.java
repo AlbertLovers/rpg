@@ -9,7 +9,7 @@ public class CharacteristicsDao {
 
 	private GenericDao<Characteristics> dao = new GenericDao<>();
 
-	public Characteristics getCharacteristic(int id) throws SQLException {
+	public Characteristics getCharacteristic(Long id) throws SQLException {
 		String query = "SELECT * FROM Characteristics WHERE id = ?";
 		return dao.querySingleObject(query, id, new CharacteristicsMapper());
 	}

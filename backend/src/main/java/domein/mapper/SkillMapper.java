@@ -13,9 +13,9 @@ public class SkillMapper implements Mapper<Skill> {
 	public Skill map(ResultSet rs) throws SQLException {
 		Skill skill = new Skill();
 
-		skill.setId(rs.getInt("id"));
-		skill.setAptitude1Id(rs.getInt("aptitude1"));
-		skill.setAptitude2Id(rs.getInt("aptitude2"));
+		skill.setId(rs.getLong("id"));
+		skill.setAptitude1Id(rs.getLong("aptitude1"));
+		skill.setAptitude2Id(rs.getLong("aptitude2"));
 		skill.setNaam(rs.getString("naam"));
 		skill.setOmschrijving(rs.getString("omschrijving"));
 
@@ -25,7 +25,7 @@ public class SkillMapper implements Mapper<Skill> {
 	public static Skill map(Map<String, Object> rs) {
 		Skill skill = new Skill();
 
-		skill.setId(rs.get("id") == null ? 0 : Integer.parseInt(String.valueOf(rs.get("id"))));
+		skill.setId(rs.get("id") == null ? 0 : Long.parseLong(String.valueOf(rs.get("id"))));
 		skill.setAptitude1Id(Cache.getAptitude(String.valueOf(rs.get("aptitude1"))).getId());
 		skill.setAptitude2Id(Cache.getAptitude(String.valueOf(rs.get("aptitude2"))).getId());
 		skill.setNaam(String.valueOf(rs.get("naam")));

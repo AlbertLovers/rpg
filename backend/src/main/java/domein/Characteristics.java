@@ -2,7 +2,7 @@ package domein;
 
 public class Characteristics {
 
-	private int id;
+	private Long id;
 	private int weaponSkill;
 	private int ballisticSkill;
 	private int strength;
@@ -13,11 +13,11 @@ public class Characteristics {
 	private int willpower;
 	private int fellowship;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

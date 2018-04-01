@@ -28,14 +28,14 @@ public class Cache {
 		}
 	}
 
-	public static Skill getSkill(int id) {
+	public static Skill getSkill(Long id) {
 		for(Skill skill : skills) {
 			if(skill.getId() == id) return skill;
 		}
 		return null;
 	}
 
-	public static Aptitude getAptitude(int id) {
+	public static Aptitude getAptitude(Long id) {
 		for(Aptitude aptitude : aptitudes) {
 			if(aptitude.getId() == id) return aptitude;
 		}

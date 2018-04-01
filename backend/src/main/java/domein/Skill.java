@@ -7,27 +7,27 @@ import dao.Cache;
 public class Skill {
 
 	@Id
-	private int id;
-	
+	private Long id;
+
 	private String naam;
 
 	private String omschrijving;
-	
-	private int aptitude1Id;
-	
-	private int aptitude2Id;
+
+	private Long aptitude1Id;
+
+	private Long aptitude2Id;
 
 	@Transient
 	private Aptitude aptitude1;
-	
+
 	@Transient
 	private Aptitude aptitude2;
-	
-	public int getId() {
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -47,20 +47,20 @@ public class Skill {
 		this.omschrijving = omschrijving;
 	}
 
-	public int getAptitude1Id() {
+	public Long getAptitude1Id() {
 		return aptitude1Id;
 	}
 
-	public void setAptitude1Id(int aptitude1Id) {
+	public void setAptitude1Id(Long aptitude1Id) {
 		this.aptitude1 = Cache.getAptitude(aptitude1Id);
 		this.aptitude1Id = aptitude1Id;
 	}
 
-	public int getAptitude2Id() {
+	public Long getAptitude2Id() {
 		return aptitude2Id;
 	}
 
-	public void setAptitude2Id(int aptitude2Id) {
+	public void setAptitude2Id(Long aptitude2Id) {
 		this.aptitude2 = Cache.getAptitude(aptitude2Id);
 		this.aptitude2Id = aptitude2Id;
 	}
@@ -72,7 +72,7 @@ public class Skill {
 	public Aptitude getAptitude2() {
 		return aptitude2;
 	}
-	
+
 	@Override
 	public String toString() {
 		return naam;

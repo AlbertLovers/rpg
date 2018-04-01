@@ -11,7 +11,7 @@ public class AptitudeMapper implements Mapper<Aptitude> {
 	public Aptitude map(ResultSet rs) throws SQLException {
 		Aptitude aptitude = new Aptitude();
 
-		aptitude.setId(rs.getInt(1));
+		aptitude.setId(rs.getLong(1));
 		aptitude.setNaam(rs.getString(2));
 
 		return aptitude;
