@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.Start;
-import domein.Aptitude;
+import entities.Aptitude;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;

@@ -3,8 +3,8 @@ package dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import domein.Aptitude;
-import domein.mapper.AptitudeMapper;
+import entities.Aptitude;
+import entities.mapper.AptitudeMapper;
 
 public class AptitudeDao {
 

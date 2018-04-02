@@ -1,4 +1,4 @@
-package domein.mapper;
+package entities.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

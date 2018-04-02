@@ -3,8 +3,8 @@ package dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import domein.Skill;
-import domein.mapper.SkillMapper;
+import entities.Skill;
+import entities.mapper.SkillMapper;
 
 public class SkillDao extends GenericDao<Skill> {
 

@@ -2,7 +2,7 @@ package dao;
 
 import java.sql.SQLException;
 
-import domein.Karakter;
+import entities.Karakter;
 
 public class KarakterDao {
 

@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import dao.AptitudeDao;
-import domein.Aptitude;
+import entities.Aptitude;
 import view.TalentView;
 
 public class TalentController implements Controller {

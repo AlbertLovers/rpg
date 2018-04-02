@@ -2,8 +2,8 @@ package dao;
 
 import java.sql.SQLException;
 
-import domein.Characteristics;
-import domein.mapper.CharacteristicsMapper;
+import entities.Characteristics;
+import entities.mapper.CharacteristicsMapper;
 
 public class CharacteristicsDao {
 
@@ -13,8 +13,15 @@ public class CharacteristicsDao {
 		String query = "SELECT * FROM Characteristics WHERE id = ?";
 		return dao.querySingleObject(query, id, new CharacteristicsMapper());
 	}
-	
-	public int insertCharacteristics(Characteristics characteristics) {
-		return dao.insertObject(characteristics);
+
+	public int insertCharacteristics(Characteristics item) {
+		String query = "INSERT INTO Characteristics "
+				+ "(weaponSkill, ballisticSkill, strength, toughness, agility, intelligene, perception, willpower, fellowship) "
+				+ "VALUES (?,?,?,?,?,?,?,?,?)";
+		
+		Object[] params = { item.getWeaponSkill(), item.getBallisticSkill(), item.getStrength(), item.getToughness(), item.getAgility(),
+				item.getIntelligence(), item.getPerception(), item.getWillpower(), item.getFellowship() };
+		
+		return dao.insertObject(query, params);
 	}
 }

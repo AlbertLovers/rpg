@@ -1,4 +1,4 @@
-package domein.mapper;
+package entities.mapper;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.ResultSet;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-import domein.Characteristics;
+import entities.Characteristics;
 
 //Voor de sier, want nu hoef ik nooit meer een Characteristicsmapper te schrijven
 //hoewel dit natuurlijk wel een stuk langzamer is, maar geen high throughput applicatie

@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import app.Start;
-import domein.Aptitude;
-import domein.Skill;
+import entities.Aptitude;
+import entities.Skill;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

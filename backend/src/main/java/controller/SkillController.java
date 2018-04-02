@@ -4,8 +4,8 @@ import java.util.Map;
 
 import dao.Cache;
 import dao.SkillDao;
-import domein.Skill;
-import domein.mapper.SkillMapper;
+import entities.Skill;
+import entities.mapper.SkillMapper;
 import view.SkillView;
 
 public class SkillController implements Controller {

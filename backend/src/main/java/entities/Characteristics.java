@@ -1,4 +1,4 @@
-package domein;
+package entities;
 
 public class Characteristics {
 
@@ -13,6 +13,8 @@ public class Characteristics {
 	private int willpower;
 	private int fellowship;
 
+	private CharacteristicsPurchaseLevel purchaseLevel;
+	
 	public Long getId() {
 		return id;
 	}
@@ -91,6 +93,14 @@ public class Characteristics {
 
 	public void setFellowship(int fellowship) {
 		this.fellowship = fellowship;
+	}
+
+	public CharacteristicsPurchaseLevel getPurchaseLevel() {
+		return purchaseLevel;
+	}
+
+	public void setPurchaseLevel(CharacteristicsPurchaseLevel purchaseLevel) {
+		this.purchaseLevel = purchaseLevel;
 	}
 
 }

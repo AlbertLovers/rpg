@@ -1,26 +1,19 @@
-package domein;
+package entities;
 
-import annotation.Id;
-import annotation.Transient;
 import dao.Cache;
 
 public class Skill {
 
-	@Id
 	private Long id;
 
 	private String naam;
 
 	private String omschrijving;
 
-	private Long aptitude1Id;
+	private int level;
 
-	private Long aptitude2Id;
-
-	@Transient
 	private Aptitude aptitude1;
 
-	@Transient
 	private Aptitude aptitude2;
 
 	public Long getId() {
@@ -47,22 +40,20 @@ public class Skill {
 		this.omschrijving = omschrijving;
 	}
 
-	public Long getAptitude1Id() {
-		return aptitude1Id;
+	public int getLevel() {
+		return level;
 	}
 
-	public void setAptitude1Id(Long aptitude1Id) {
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public void setAptitude1ById(Long aptitude1Id) {
 		this.aptitude1 = Cache.getAptitude(aptitude1Id);
-		this.aptitude1Id = aptitude1Id;
 	}
 
-	public Long getAptitude2Id() {
-		return aptitude2Id;
-	}
-
-	public void setAptitude2Id(Long aptitude2Id) {
+	public void setAptitude2ById(Long aptitude2Id) {
 		this.aptitude2 = Cache.getAptitude(aptitude2Id);
-		this.aptitude2Id = aptitude2Id;
 	}
 
 	public Aptitude getAptitude1() {

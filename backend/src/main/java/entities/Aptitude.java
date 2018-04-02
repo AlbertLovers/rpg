@@ -1,4 +1,4 @@
-package domein;
+package entities;
 
 public class Aptitude {
 

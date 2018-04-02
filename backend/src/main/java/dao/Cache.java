@@ -4,8 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import domein.Aptitude;
-import domein.Skill;
+import entities.Aptitude;
+import entities.Skill;
 
 public class Cache {
 
