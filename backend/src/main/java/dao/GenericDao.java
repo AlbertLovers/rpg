@@ -67,9 +67,4 @@ public class GenericDao<T> {
 
 		return null;
 	}
-
-	public int insertObject(String query, Object[] params) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

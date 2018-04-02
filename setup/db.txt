@@ -61,6 +61,13 @@ CREATE TABLE Talent (
   FOREIGN KEY (characteristics_id) REFERENCES Characteristics (id)
 );
 
+CREATE TABLE Karakter_Talent (
+  karakter_id BIGINT,
+  talent_id BIGINT,
+  FOREIGN KEY (talent_id) REFERENCES Talent (id),
+  FOREIGN KEY (karakter_id) REFERENCES Karakter (id)
+);
+
 CREATE TABLE Talent_Talent (
   talent_id BIGINT,
   requiredTalent_id BIGINT,
