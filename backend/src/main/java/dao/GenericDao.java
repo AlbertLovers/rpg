@@ -67,4 +67,44 @@ public class GenericDao<T> {
 
 		return null;
 	}
+
+	/**
+	 * 
+	 * @param query
+	 * @param params
+	 * @return gegenereerde id van het object, of null bij fout
+	 */
+	public Long insert(String query, Object[] params) {
+		Long id = null;
+		try(Connection connection = manager.getConnection(); PreparedStatement statement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)){
+			for(int i = 0; i < params.length; i++) {
+				statement.setObject(i + 1, params[i]);
+			}
+			statement.executeUpdate();
+
+			try(ResultSet rs = statement.getGeneratedKeys()) {
+				id = rs.getLong(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return id;
+	}
+
+	/**
+	 * Update het object in de database aan de hand van de opgegeven query en parameters
+	 * @param query
+	 * @param params
+	 */
+	public void update(String query, Object[] params) {
+		try(Connection connection = manager.getConnection(); PreparedStatement statement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)){
+			for(int i = 0; i < params.length; i++) {
+				statement.setObject(i + 1, params[i]);
+			}
+
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

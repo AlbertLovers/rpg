@@ -14,14 +14,14 @@ public class CharacteristicsDao {
 		return dao.querySingleObject(query, id, new CharacteristicsMapper());
 	}
 
-	public int insertCharacteristics(Characteristics item) {
+	public Long insertCharacteristics(Characteristics item) {
 		String query = "INSERT INTO Characteristics "
 				+ "(weaponSkill, ballisticSkill, strength, toughness, agility, intelligene, perception, willpower, fellowship) "
 				+ "VALUES (?,?,?,?,?,?,?,?,?)";
-		
+
 		Object[] params = { item.getWeaponSkill(), item.getBallisticSkill(), item.getStrength(), item.getToughness(), item.getAgility(),
 				item.getIntelligence(), item.getPerception(), item.getWillpower(), item.getFellowship() };
-		
-		return dao.insertObject(query, params);
+
+		return dao.insert(query, params);
 	}
 }

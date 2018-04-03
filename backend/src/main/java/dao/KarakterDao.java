@@ -27,7 +27,7 @@ public class KarakterDao {
 		}
 	}
 
-	public void insertCharacter(Karakter karakter) {
+	public void createCharacter(Karakter karakter) {
 		String karakterQuery = "INSERT INTO Karakter (naam, omschrijving, persoonlijkheid) VALUES (?, ?, ?)";
 		Connection con = null;
 		try {
