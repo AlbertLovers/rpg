@@ -2,3 +2,5 @@ backend/target
 backend/.settings
 backend/creds.properties
 /bin/
+backend/.classpath
+backend/.project
